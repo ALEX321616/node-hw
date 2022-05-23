@@ -32,7 +32,7 @@ async function removeContact(contactId) {
     return null;
   }
 
-  const newContacts = data.filter((el) => Number(el.id) !== Number(contactId));
+  const newContacts = data.filter((el) => String(el.id) !== String(contactId));
   try {
     await fs.promises.writeFile(contactsPath, JSON.stringify(newContacts));
   } catch (err) {
